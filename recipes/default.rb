@@ -1,5 +1,5 @@
 #
-# Cookbook:: fedora
+# Cookbook:: fedora_bootstrap
 # Recipe:: default
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
@@ -17,6 +17,16 @@ end
 
 cookbook_file '/root/.bashrc' do
   source 'bashrc.root'
+end
+
+# Places to hold customizations
+directory '/home/rauld/.themes'
+directory '/home/rauld/.icons'
+
+directory '/home/rauld/.config'
+directory '/home/rauld/.config/procps'
+cookbook_file '/home/rauld/.config/procps/toprc' do
+  source 'toprc'
 end
 
 # Install Java
@@ -58,6 +68,7 @@ package 'gnome-shell-extension-pomodoro.x86_64'
 
 # Install themes
 #
+# Gnome shell theme:
 # Copernico theme:
 # https://www.gnome-look.org/p/1013056/
 # https://gitlab.com/mgyugcha/copernico-theme
@@ -68,30 +79,51 @@ package 'gnome-shell-extension-pomodoro.x86_64'
 # Flat Remix:
 # https://github.com/daniruiz/flat-remix
 #
+# Application theme:
+# Vimix-gtk-themes
+
+# https://github.com/vinceliuice/vimix-gtk-themes
+#
 # Install software packages
-# nmap, brasero, docker, redshift-gtk, virt-manager, libvirt, vim
 package 'nmap'
 package 'brasero'
 package 'docker'
-package 'redshift-gtk'
+#package 'redshift-gtk'
 package 'libvirt'
 package 'virt-manager'
 package 'vim'
-package 'simple-mtpfs'
-package 'gvfs-mtp'
+#package 'simple-mtpfs'
+#package 'gvfs-mtp'
 package 'meld'
 package 'gconf-editor'
 package 'dconf-editor'
 package 'screenfetch'
 package 'gnome-todo'
 package 'libXScrnSaver'
+package 'firewall-config'
+package 'gnome-tweaks'
+package 'liberation-fonts'
+package 'redhat-lsb-core'
+package 'libappindicator'
+package 'libappindicator-gtk3'
+package 'pygtk2'
+package 'libgnome'
+package 'python2-gpg'
+package 'keepass'
 
-# chrome, cockpit, 
-# firewall
-# dropbox, atom editor, gimp, Zim, gnome-tweak-tool, keepass
+# chrome, cockpit,
+# dropbox, atom editor, gimp, Zim
 # enable rpmfusion repos
 # install gstreamer-plugins-ugly
 
 # Ensure that /etc/systemd/logind.conf contains
 # HandleLidSwitch=suspend explicitly (not commented)
 # to get the lappy to suspend when lid is cloed.
+bash 'install_sublime_gpg_key' do
+  code 'rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg'
+end
+bash 'install_sublime_repo' do
+  code 'dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo'
+end
+package 'sublime-text'
+
