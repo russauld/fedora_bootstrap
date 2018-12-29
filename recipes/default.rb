@@ -127,3 +127,9 @@ bash 'install_sublime_repo' do
 end
 package 'sublime-text'
 
+# Need a group called 'docker' with me in it
+group 'docker' do
+  append true
+  members 'rauld'
+end
+
