@@ -111,7 +111,7 @@ package 'libappindicator'
 package 'libappindicator-gtk3'
 package 'pygtk2'
 package 'libgnome'
-package 'python2-gpg'
+#package 'python2-gpg' # This doesn't work in F31
 package 'keepass'
 package 'cockpit'
 
