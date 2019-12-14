@@ -87,7 +87,10 @@ package 'gnome-shell-extension-pomodoro.x86_64'
 # Install software packages
 package 'nmap'
 package 'brasero'
-package 'docker'
+#package 'docker' #this should be docker-ce at least, but rather use podman anyway
+package 'podman'
+package 'buildah'
+package 'skopeo'
 #package 'redshift-gtk'
 package 'libvirt'
 package 'virt-manager'
@@ -110,8 +113,8 @@ package 'pygtk2'
 package 'libgnome'
 package 'python2-gpg'
 package 'keepass'
+package 'cockpit'
 
-# chrome, cockpit,
 # dropbox, atom editor, gimp, Zim
 # enable rpmfusion repos
 # install gstreamer-plugins-ugly
@@ -128,8 +131,13 @@ end
 package 'sublime-text'
 
 # Need a group called 'docker' with me in it
-group 'docker' do
-  append true
-  members 'rauld'
+#group 'docker' do
+#  append true
+#  members 'rauld'
+#end
+
+cookbook_file '/etc/yum.repos.d/google-chrome.repo' do
+  source 'google-chrome.repo'
 end
 
+package 'google-chrome-stable'
