@@ -15,7 +15,7 @@ PROMPT_DIRTRIM=3
 #PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
 #PS1='[\[\e[1;32m\]\u@\h\[\e[0m\]] \w \$ '
 #PS1='[\[\e[0;32m\]\u@\h\[\e[m\]:\[\e[1;36m\]\w\[\e[m\]]$ '
-PS1='[\[\e[0;32m\]\u\[\e[m\]@\[\e[0;32m\]\h\[\e[m\]:\[\e[1;36m\]\w\[\e[m\]]$ ''
+PS1='[\[\e[0;32m\]\u\[\e[m\]@\[\e[0;32m\]\h\[\e[m\]:\[\e[1;36m\]\w\[\e[m\]]$ '
 
 # User specific aliases and functions
 #if [ -e /opt/intel ]; then
