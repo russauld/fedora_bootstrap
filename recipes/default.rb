@@ -141,3 +141,9 @@ cookbook_file '/etc/yum.repos.d/google-chrome.repo' do
 end
 
 package 'google-chrome-stable'
+
+group 'libvirt' do
+  action :modify
+  append true
+  members 'rauld'
+end
