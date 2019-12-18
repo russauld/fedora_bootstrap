@@ -4,14 +4,23 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
+# Grab user data from data bag.
+# Example file called "${data_bag_path}/users/user_info.json"
+# { 'username':'steve',
+#   'shell': '/bin/bash'
+# }
+
+name = data_bag_item('users', 'user_info')['username']
+
+#
 # Install .bashrc for me and root
-user 'rauld' do
+user name do
   action :create
-  home '/home/rauld'
+  home "/home/#{name}"
   manage_home true
 end
 
-cookbook_file '/home/rauld/.bashrc' do
+cookbook_file "/home/#{name}/.bashrc" do
   source 'bashrc'
 end
 
@@ -20,12 +29,12 @@ cookbook_file '/root/.bashrc' do
 end
 
 # Places to hold customizations
-directory '/home/rauld/.themes'
-directory '/home/rauld/.icons'
+directory "/home/#{name}/.themes"
+directory "/home/#{name}/.icons"
 
-directory '/home/rauld/.config'
-directory '/home/rauld/.config/procps'
-cookbook_file '/home/rauld/.config/procps/toprc' do
+directory "/home/#{name}/.config"
+directory "/home/#{name}/.config/procps"
+cookbook_file "/home/#{name}/.config/procps/toprc" do
   source 'toprc'
 end
 
@@ -122,18 +131,20 @@ package 'cockpit'
 # Ensure that /etc/systemd/logind.conf contains
 # HandleLidSwitch=suspend explicitly (not commented)
 # to get the lappy to suspend when lid is cloed.
-bash 'install_sublime_gpg_key' do
-  code 'rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg'
-end
+
+#bash 'install_sublime_gpg_key' do
+#  code 'rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg'
+#end
 bash 'install_sublime_repo' do
   code 'dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo'
+  not_if  { ::File.exist?('/etc/yum.repos.d/sublime-text.repo') }
 end
 package 'sublime-text'
 
 # Need a group called 'docker' with me in it
 #group 'docker' do
 #  append true
-#  members 'rauld'
+#  members name
 #end
 
 cookbook_file '/etc/yum.repos.d/google-chrome.repo' do
@@ -145,5 +156,5 @@ package 'google-chrome-stable'
 group 'libvirt' do
   action :modify
   append true
-  members 'rauld'
+  members name
 end
