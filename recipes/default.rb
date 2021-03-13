@@ -45,31 +45,36 @@ end
 # Install extensions for Gnome Shell
 #
 # dash-to-dock
-# https://github.com/micheleg/dash-to-dock
-# https://extensions.gnome.org/extension/307/dash-to-dock/
+#   https://github.com/micheleg/dash-to-dock
+#   https://extensions.gnome.org/extension/307/dash-to-dock/
 #
-# Previously I was using this but it's unsupported on Gnome shell v3.26 and up (F27)
-# (It's just a basic fork of dash-to-dock anyway)
-# 	simpledock
-# 	https://extensions.gnome.org/extension/815/simple-dock/
-# 	https://github.com/optimisme/gnome-shell-simple-dock
-#
-# Workspaces-to-dock - lately I don't like this one.
-# https://extensions.gnome.org/extension/427/workspaces-to-dock/
-# https://github.com/passingthru67/workspaces-to-dock
-# 
 # clipboard indicator
-# https://extensions.gnome.org/extension/779/clipboard-indicator/
+#   https://extensions.gnome.org/extension/779/clipboard-indicator/
 #
 # CoverFlow alt-tab
-# https://extensions.gnome.org/extension/97/coverflow-alt-tab/
+#   https://extensions.gnome.org/extension/97/coverflow-alt-tab/
 #
 # Drop down terminal:
-# https://github.com/zzrough/gs-extensions-drop-down-terminal
+#   https://extensions.gnome.org/extension/442/drop-down-terminal/
+#   https://github.com/zzrough/gs-extensions-drop-down-terminal/
+#
+# Previously used extensions:
+#
+# Workspaces-to-dock
+#   https://extensions.gnome.org/extension/427/workspaces-to-dock/
+#   https://github.com/passingthru67/workspaces-to-dock
 #
 # TopIcons Plus
-# https://github.com/phocean/TopIcons-plus
-# Download zip file, unpack in tmp and run make
+#   https://github.com/phocean/TopIcons-plus
+#   Download zip file, unpack in tmp and run make
+#
+# System-monitor
+#   https://extensions.gnome.org/extension/120/system-monitor/
+#   https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet
+#
+# Hide Activities
+#   This hides the Activities thing in the top-left corner
+#   https://extensions.gnome.org/extension/744/hide-activities-button/
 #
 # pomodoro:
 package 'gnome-shell-extension-pomodoro.x86_64'
@@ -123,6 +128,15 @@ package 'libgnome'
 #package 'python2-gpg' # This doesn't work in F31
 package 'keepass'
 package 'cockpit'
+package 'pcp'
+package 'pcp-gui'
+package 'pcp-system-tools'
+package 'sysstat'
+package 'dkms'
+package 'htop'
+package 'inkscape'
+package 'gimp'
+package 'gnote'
 
 # dropbox, atom editor, gimp, Zim
 # enable rpmfusion repos
