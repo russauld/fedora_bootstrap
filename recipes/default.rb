@@ -58,6 +58,10 @@ end
 #   https://extensions.gnome.org/extension/442/drop-down-terminal/
 #   https://github.com/zzrough/gs-extensions-drop-down-terminal/
 #
+# Notes
+#   https://extensions.gnome.org/extension/1357/notes/
+#   https://github.com/maoschanz/notes-extension-gnome
+#
 # Previously used extensions:
 #
 # Workspaces-to-dock
@@ -137,6 +141,7 @@ package 'htop'
 package 'inkscape'
 package 'gimp'
 package 'gnote'
+package 'foliate'
 
 # dropbox, atom editor, gimp, Zim
 # enable rpmfusion repos

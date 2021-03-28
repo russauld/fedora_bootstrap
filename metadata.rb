@@ -4,7 +4,7 @@ maintainer_email 'russauld@gmail.com'
 license 'none'
 description 'Configures Fedora Workstation for Russ.'
 long_description 'Configures Fedora Workstation the way Russ likes it.'
-version '0.5.0'
+version '0.6.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
