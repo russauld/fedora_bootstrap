@@ -1,7 +1,7 @@
 # Fedora Workstation Bootstrap
 
-This cookbook configures a Fedora Workstation just the way that Russ likes it.
-It installs packages and gets it all nice nice.
+This cookbook configures a Fedora Workstation the way Russ likes it.
+It installs packages and gets it all configured.
 
 Feel free to copy and modify as you like.
 
