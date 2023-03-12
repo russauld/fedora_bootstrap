@@ -177,3 +177,17 @@ group 'libvirt' do
   append true
   members name
 end
+
+# VPN Setup:
+cookbook_file '/root/go-vpn.sh' do
+  source 'vpn/go-vpn.sh'
+  mode 0755
+end
+cookbook_file '/root/vpn-setup-inside-ns.sh' do
+  source 'vpn/vpn-setup-inside-ns.sh'
+  mode 0755
+end
+cookbook_file '/root/vpn-setup.sh' do
+  source 'vpn/vpn-setup.sh'
+  mode 0755
+end
